@@ -1,24 +1,30 @@
-# README
+# Ruby on Rails example - Elastic Beanstalk]
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Geeting Started
 
-Things you may want to cover:
+**Executando o container local**
 
-* Ruby version
+```
+docker build -t rubyonrailstest .
 
-* System dependencies
+docker run -d -p 8080:3000 rubyonrailstest
 
-* Configuration
+```
 
-* Database creation
+**Publicando a imagem no ECR**
 
-* Database initialization
+```
+aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin account-id.dkr.ecr.us-east-1.amazonaws.com
 
-* How to run the test suite
+docker tag rubyonrailstest:latest account-id.dkr.ecr.us-east-1.amazonaws.com/rubyonrailstest:latest
 
-* Services (job queues, cache servers, search engines, etc.)
+docker push account-id.dkr.ecr.us-east-1.amazonaws.com/rubyonrailstest:latest
+```
 
-* Deployment instructions
+## Referências
 
-* ...
+- https://www.docker.com/resources/what-container
+- https://www.youtube.com/playlist?list=PLf-O3X2-mxDkiUH0r_BadgtELJ_qyrFJ_
+- https://docs.docker.com/samples/rails/
+- https://hub.docker.com/_/ruby
+- https://docs.aws.amazon.com/pt_br/elasticbeanstalk/latest/dg/docker.html
