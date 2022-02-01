@@ -1,4 +1,4 @@
-# Ruby on Rails example - Elastic Beanstalk]
+# Ruby on Rails example - Elastic Beanstalk
 
 ## Geeting Started
 
