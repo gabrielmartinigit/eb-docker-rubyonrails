@@ -1,7 +1,7 @@
 {
     "AWSEBDockerrunVersion": "1",
     "Image": {
-        "Name": "account-id.dkr.ecr.us-east-1.amazonaws.com/rubyonrailstest:latest",
+        "Name": "856860420093.dkr.ecr.us-east-1.amazonaws.com/rubyonrailstest:latest",
         "Update": "true"
     },
     "Ports": [

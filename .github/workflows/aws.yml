@@ -8,37 +8,54 @@ on:
 env:
   AWS_REGION: us-east-1
   ECR_REPOSITORY: rubyonrailstest
+  RELEASE_ID: ${{ github.sha }}
+  S3_ARTIFACTS: elasticbeanstalk-us-east-1-
+  EB_APP_NAME: test
+  EB_ENV_NAME: Test-env
 
 jobs:
-  build:
-    name: Build
+  deploy:
+    name: Build & Deploy
     runs-on: ubuntu-latest
     environment: production
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
 
-    - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v1
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: ${{ env.AWS_REGION }}
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
 
-    - name: Login to Amazon ECR
-      id: login-ecr
-      uses: aws-actions/amazon-ecr-login@v1
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
 
-    - name: Build, tag, and push image to Amazon ECR
-      id: build-image
-      env:
-        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        IMAGE_TAG: ${{ github.sha }}
-      run: |
-        # Build a docker container and
-        # push it to ECR so that it can
-        # be deployed to ECS.
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-        echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
+      - name: Build, tag, and push image to Amazon ECR
+        id: build-image
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          IMAGE_TAG: ${{ env.RELEASE_ID }}
+        run: |
+          # Build a docker container and
+          # push it to ECR so that it can
+          # be deployed to ECS.
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -t $ECR_REGISTRY/$ECR_REPOSITORY:latest .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
+          echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
+
+      - name: AWS CLI Upload version file
+        run: |
+          aws s3 cp Dockerrun.aws.json s3://${{ env.S3_ARTIFACTS }}/Dockerrun.aws.json
+
+      - name: AWS CLI Create EB Version
+        run: |
+          aws elasticbeanstalk create-application-version --application-name ${{ env.EB_APP_NAME }} --version-label ${{ env.RELEASE_ID }} --source-bundle S3Bucket=${{ env.S3_ARTIFACTS }},S3Key=Dockerrun.aws.json
+
+      - name: AWS CLI Deploy EB Version
+        run: |
+          aws elasticbeanstalk update-environment --application-name ${{ env.EB_APP_NAME }} --environment-name ${{ env.EB_ENV_NAME }} --version-label=${{ env.RELEASE_ID }}
