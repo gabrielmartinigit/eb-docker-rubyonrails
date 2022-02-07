@@ -9,7 +9,7 @@ env:
   AWS_REGION: us-east-1
   ECR_REPOSITORY: rubyonrailstest
   RELEASE_ID: ${{ github.sha }}
-  S3_ARTIFACTS: elasticbeanstalk-us-east-1-
+  S3_ARTIFACTS: elasticbeanstalk-us-east-1-856860420093
   EB_APP_NAME: test
   EB_ENV_NAME: Test-env
 
