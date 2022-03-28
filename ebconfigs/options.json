@@ -8,5 +8,120 @@
     "Namespace": "aws:elasticbeanstalk:application:environment",
     "OptionName": "MESSAGE2",
     "Value": "exemplo-de-senha"
+  },
+  {
+    "Namespace": "aws:elasticbeanstalk:application:environment",
+    "OptionName": "ADMIN_INVITE_URI",
+    "Value": "/antigo/confirmar-cadastro"
+  },
+  {
+    "Namespace": "aws:elasticbeanstalk:application:environment",
+    "OptionName": "ADMIN_PASSWORD_RESET_URI",
+    "Value": "/antigo/esqueciasenha"
+  },
+  {
+    "Namespace": "aws:elasticbeanstalk:application:environment",
+    "OptionName": "ALGOLIASEARCH_API_KEY",
+    "Value": "exemplo-de-senha-exemplo-de-senha"
+  },
+  {
+    "Namespace": "aws:elasticbeanstalk:application:environment",
+    "OptionName": "ALGOLIASEARCH_API_KEY_SEARCH",
+    "Value": "exemplo-de-senha-exemplo-de-senha"
+  },
+  {
+    "Namespace": "aws:elasticbeanstalk:application:environment",
+    "OptionName": "ALGOLIASEARCH_APPLICATION_ID",
+    "Value": "exemplo-de-id"
+  },
+  {
+    "Namespace": "aws:elasticbeanstalk:application:environment",
+    "OptionName": "ANDROID_APP_TOKEN",
+    "Value": "exemplo-de-senha-exemplo-de-senhaexemplo-de-senha-exemplo-de-senha"
+  },
+  {
+    "Namespace": "aws:elasticbeanstalk:application:environment",
+    "OptionName": "ANDROID_TEST_REPOSITORY_APP_TOKEN",
+    "Value": "exemplo-de-senha-exemplo-de-senhaexemplo-de-senha-exemplo-de-senha"
+  },
+  {
+    "Namespace": "aws:elasticbeanstalk:application:environment",
+    "OptionName": "APP_ENEM_BFF_IP_RACK_WHITELIST",
+    "Value": "5.6.7.8"
+  },
+  {
+    "Namespace": "aws:elasticbeanstalk:application:environment",
+    "OptionName": "APPLE_LOGIN_CLIENT_ID",
+    "Value": "com.mesalva.exerciciosEnemVestibulares"
+  },
+  {
+    "Namespace": "aws:elasticbeanstalk:application:environment",
+    "OptionName": "APPLE_LOGIN_TEAM_ID",
+    "Value": "exemplo-de-id"
+  },
+  {
+    "Namespace": "aws:elasticbeanstalk:application:environment",
+    "OptionName": "APPLE_LOGIN_KEY_ID",
+    "Value": "exemplo-de-id"
+  },
+  {
+    "Namespace": "aws:elasticbeanstalk:application:environment",
+    "OptionName": "APPLE_LOGIN_PRIVATE_KEY",
+    "Value": "config/exemplo-de-id"
+  },
+  {
+    "Namespace": "aws:elasticbeanstalk:application:environment",
+    "OptionName": "APPLE_OAUTH_LOGIN_URL",
+    "Value": "https://appleid.apple.com/auth/token"
+  },
+  {
+    "Namespace": "aws:elasticbeanstalk:application:environment",
+    "OptionName": "AWS_ACCESS_KEY_ID",
+    "Value": "exemplo-de-idexemplo-de-id"
+  },
+  {
+    "Namespace": "aws:elasticbeanstalk:application:environment",
+    "OptionName": "AWS_BUCKET_FILES_PATH",
+    "Value": "uploads/csv/"
+  },
+  {
+    "Namespace": "aws:elasticbeanstalk:application:environment",
+    "OptionName": "AWS_SECRET_ACCESS_KEY",
+    "Value": "exemplo-de-senhaexemplo-de-senhaexemplo-de-senha"
+  },
+  {
+    "Namespace": "aws:elasticbeanstalk:application:environment",
+    "OptionName": "BUZZLEAD_API_KEY",
+    "Value": "exemplo-de-senha-exemplo-de-senhaexemplo-de-senha-exemplo-de-senha"
+  },
+  {
+    "Namespace": "aws:elasticbeanstalk:application:environment",
+    "OptionName": "BUZZLEAD_API_TOKEN",
+    "Value": "exemplo-de-senha-exemplo-de-senhaexemplo-de-senha-exemplo-de-senhaexemplo-de-senha-exemplo-de-senhaexemplo-de-senha-exemplo-de-senha"
+  },
+  {
+    "Namespace": "aws:elasticbeanstalk:application:environment",
+    "OptionName": "BUZZLEAD_API_URL",
+    "Value": "https://app.buzzlead.com.br/api/service/exemplo-de-id/"
+  },
+  {
+    "Namespace": "aws:elasticbeanstalk:application:environment",
+    "OptionName": "BOOKSHOP_COUPONS_CAMPAING_ACTIVE",
+    "Value": "true"
+  },
+  {
+    "Namespace": "aws:elasticbeanstalk:application:environment",
+    "OptionName": "CACHE_EXPIRATION_HOURS",
+    "Value": "6"
+  },
+  {
+    "Namespace": "aws:elasticbeanstalk:application:environment",
+    "OptionName": "CHECKOUT_RATE_LIMIT",
+    "Value": "5"
+  },
+  {
+    "Namespace": "aws:elasticbeanstalk:application:environment",
+    "OptionName": "CLIENT_WHITELIST",
+    "Value": "WEB"
   }
 ]
