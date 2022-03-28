@@ -1,0 +1,12 @@
+[
+  {
+    "Namespace": "aws:elasticbeanstalk:application:environment",
+    "OptionName": "MESSAGE",
+    "Value": "exemplo@mesalva.com"
+  },
+  {
+    "Namespace": "aws:elasticbeanstalk:application:environment",
+    "OptionName": "MESSAGE2",
+    "Value": "exemplo-de-senha"
+  }
+]
