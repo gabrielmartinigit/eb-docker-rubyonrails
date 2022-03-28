@@ -1,12 +1,12 @@
 [
   {
     "Namespace": "aws:elasticbeanstalk:application:environment",
-    "OptionName": "MESSAGE",
+    "OptionName": "ACTIVE_ADMIN_USERNAME",
     "Value": "exemplo@mesalva.com"
   },
   {
     "Namespace": "aws:elasticbeanstalk:application:environment",
-    "OptionName": "MESSAGE2",
+    "OptionName": "ACTIVE_ADMIN_PASSWORD",
     "Value": "exemplo-de-senha"
   },
   {
