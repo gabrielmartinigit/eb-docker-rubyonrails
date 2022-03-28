@@ -2,7 +2,7 @@
   {
     "Namespace": "aws:elasticbeanstalk:application:environment",
     "OptionName": "ACTIVE_ADMIN_USERNAME",
-    "Value": "exemplo@mesalva.com"
+    "Value": "{{resolve:ssm:TESTE:1}}"
   },
   {
     "Namespace": "aws:elasticbeanstalk:application:environment",
